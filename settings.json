@@ -1,0 +1,54 @@
+{
+  "transport": "sse",
+  "$schema": "https://pi.dev/schemas/settings.schema.json",
+  "theme": "dark",
+  "defaultProvider": "custom",
+  "defaultModel": "default-coding",
+  "shellPath": "/bin/zsh",
+  "defaultProjectTrust": "ask",
+  "packages": [
+    "git:github.com/obra/superpowers",
+    "npm:pi-mcp-adapter@3.2.0",
+    "npm:pi-subagents@0.83.0",
+    "npm:@mithyer/pi-retry-plus@0.11.3-1",
+    "npm:pi-blackhole@0.5.18",
+    "./pi-request-limiter"
+  ],
+  "enabledModels": [
+    "custom/default-coding",
+    "custom/preview-coding"
+  ],
+  "defaultThinkingLevel": "xhigh",
+  "enableInstallTelemetry": false,
+  "subagents": {
+    "defaultModel": "inherit",
+    "defaultSubagentOnlyExtensions": [
+      "npm:@mithyer/pi-retry-plus@0.11.3-1"
+    ],
+    "modelScope": {
+      "enforce": true,
+      "strict": true,
+      "allow": [
+        "inherit"
+      ]
+    }
+  },
+  "piRetry": {
+    "baseDelayMs": 2000,
+    "maxDelayMs": 30000,
+    "multiplier": 2,
+    "maxRetriesAtMaxDelay": 5,
+    "messageFreeRetries": true,
+    "subagents": {
+      "enabled": true,
+      "match": {
+        "systemPromptRegex": [
+          {
+            "pattern": "^<active_agent name=\"[^\"\\r\\n]+\"/>$",
+            "flags": "m"
+          }
+        ]
+      }
+    }
+  }
+}

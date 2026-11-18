@@ -1,0 +1,72 @@
+{
+  "providers": {
+    "custom": {
+      "baseUrl": "https://provider.example.invalid/api",
+      "api": "openai-completions",
+      "apiKey": "$PI_TEAM_API_KEY",
+      "authHeader": true,
+      "models": [
+        {
+          "id": "default-coding",
+          "name": "default-coding",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 200000,
+          "maxTokens": 100000,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": "minimal",
+            "low": "low",
+            "medium": "medium",
+            "xhigh": "xhigh",
+            "max": "max"
+          }
+        },
+        {
+          "id": "preview-coding",
+          "name": "preview-coding",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 200000,
+          "maxTokens": 100000,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": "minimal",
+            "low": "low",
+            "medium": "medium",
+            "xhigh": "xhigh",
+            "max": "max"
+          }
+        },
+        {
+          "id": "default-fast",
+          "name": "default-fast",
+          "reasoning": false,
+          "contextWindow": 200000,
+          "maxTokens": 100000
+        },
+        {
+          "id": "default-thinking",
+          "name": "default-thinking",
+          "reasoning": true,
+          "contextWindow": 200000,
+          "maxTokens": 100000,
+          "thinkingLevelMap": {
+            "off": null,
+            "minimal": "minimal",
+            "low": "low",
+            "medium": "medium",
+            "xhigh": "xhigh",
+            "max": "max"
+          }
+        }
+      ]
+    }
+  }
+}
