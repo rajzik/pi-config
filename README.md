@@ -1,6 +1,6 @@
 # Pi configuration
 
-Shared settings for the [Pi coding agent](https://pi.dev/), including custom model profiles, subagents, retry settings, Context7 MCP, Blackhole compaction, and local request throttling.
+Shared settings for the [Pi coding agent](https://pi.dev/), including custom model profiles, subagents, retry settings, Context7 MCP, Blackhole compaction, and shared request limits.
 
 ## Quick start
 
@@ -21,6 +21,10 @@ PI_CODING_AGENT_DIR="/absolute/path/to/pi-config" pi
 ```
 
 Pi uses the clone for its settings and local session data, so you can keep your usual `~/.pi/agent` setup. Sign in to Context7 separately if you use its MCP tools.
+
+## Request limits
+
+The GitHub plugin allows up to 24 provider HTTP requests per rolling minute and 1,000 per rolling hour. Pi processes using the same agent directory share these limits. Requests can run back to back until a limit is reached. Set different limits in `rate-limit.json` in your agent directory. [Pi request limiter](https://github.com/rajzik/pi-request-limiter)
 
 ## Local additions
 
