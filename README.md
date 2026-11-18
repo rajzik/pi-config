@@ -1,6 +1,6 @@
 # Pi configuration
 
-Shared settings for the [Pi coding agent](https://pi.dev/), including custom model profiles, subagents, retry settings, Context7 MCP, Blackhole compaction, and shared request limits.
+Shared settings for the [Pi coding agent](https://pi.dev/), including custom model profiles, subagents, retry settings, Context7 MCP, Blackhole compaction, TokenEconomizer, and shared request limits.
 
 ## Quick start
 
@@ -26,8 +26,12 @@ Pi uses the clone for its settings and local session data, so you can keep your 
 
 The GitHub plugin allows up to 24 provider HTTP requests per rolling minute and 1,000 per rolling hour. Pi processes using the same agent directory share these limits. Requests can run back to back until a limit is reached. Set different limits in `rate-limit.json` in your agent directory. [Pi request limiter](https://github.com/rajzik/pi-request-limiter)
 
+## TokenEconomizer
+
+TokenEconomizer needs Python 3.10 or newer on `PATH`. Run `/te status` in Pi to verify it loaded. [TokenEconomizer's Pi setup](https://github.com/microsoft/TokenEconomizer/blob/main/plugin/README.md#pi)
+
 ## Local additions
 
-The original setup also uses local copies of TokenEconomizer, an ADHD output extension, and symlinked skills. Install those separately if you use them. The shared profile prompts before trusting a new project.
+The original setup also uses a local ADHD output extension and symlinked skills. Install those separately if you use them. The shared profile prompts before trusting a new project.
 
 Keep provider credentials in your environment and endpoint changes in your ignored `models.json`.
